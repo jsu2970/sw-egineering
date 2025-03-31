@@ -64,7 +64,7 @@ def quiz_four_choice(root1):
     
     tk.Label(root1, text="정답을 선택하세요", font=("나눔 고딕", 16)).pack(pady=20)
     word_label = tk.Label(root1, text=word_list[current_index][1], font=("Arial", 25))
-    word_label.pack(pady=20)
+    word_label.pack(pady=15)
 
     var = tk.StringVar()  #사용자가 선택했을때 저장될 공간
     var.set(None)  #체크박스 비우기
@@ -74,7 +74,7 @@ def quiz_four_choice(root1):
     frame.pack(pady=10)
 
     for i in range(4):
-        cb = tk.Radiobutton(frame, text=f"", variable=var, value=f"", font=("나눔 고딕", 14))  #랜덤으로 뽑아야 하기에 처음에는 비워둠
+        cb = tk.Radiobutton(frame, text=f"", variable=var, value=f"", font=("나눔 고딕", 14), indicatoron=0, width=10, height=2, relief="raised")  #랜덤으로 뽑아야 하기에 처음에는 비워둠
         cb.grid(row=i // 2, column=i % 2, padx=10, pady=5)
         checkboxes.append(cb)  #나중에 조작할 수 있도록 저장하는 역할
     
@@ -83,6 +83,6 @@ def quiz_four_choice(root1):
     root1.bind("<Return>", lambda event: enter())
     
     count_word = tk.Label(root1, text=f"남은 단어 갯수: {len(word_list) - current_index}", font=("나눔 고딕", 16))
-    count_word.pack(side="bottom", pady=10)
+    count_word.pack(side="bottom", pady=5)
 
     next_word()  #시작
